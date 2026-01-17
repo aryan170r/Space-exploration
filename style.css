@@ -1,0 +1,640 @@
+/* Reset */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+/* Shared behavior for ALL parallax sections */
+.parallax {
+  height: 100%;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 -10px 20px rgba(0,0,0,0.5);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+
+.intro {
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  position: relative;   /* ADD */
+  z-index: 2;
+
+  justify-content: center; 
+  gap: 10px; 
+  width: 100%; 
+  max-width: 1200px;
+  margin-left: 150px; 
+}
+
+/* --- FIXED ASTRONAUT STYLING --- */
+.astronut {
+  width: 550px; 
+  height: auto;
+  top: 80px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  animation: float 4s ease-in-out infinite;
+}
+
+.astronut img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.moon-wrapper {
+  margin-top: 40px;
+  position: relative;
+  z-index: -10;
+}
+
+.moon {
+  width: 900px;
+  opacity: 0.9;
+
+  animation: moonRotate 20s linear infinite;
+  transform-origin: center center;
+}
+
+/* Rotation animation */
+@keyframes moonRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.moon {
+  position: absolute;
+  left: -650px;
+  top: -455px;
+  filter: drop-shadow(0 0 25px rgba(180, 220, 255, 0.4));
+}
+.glow-content,
+.astronut {
+  position: relative;
+  z-index: 3;
+}
+
+/* Backgrounds remain the same */
+.pg-1 { background-image: url('plexe.jpg'); }
+.pg-2 { background-image: url('second.jpg'); }
+.pg-3 { background-image: url('spaceship.jpg'); }
+.pg-4 { background-image: url('fourth.jpg'); }
+
+/*.pg-5 { background-image: url('https://picsum.photos/1920/1080?random=4'); }  */
+
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+  100% { transform: translateY(0); }
+}
+
+/* Text Styling */
+.glow-content h1, .glow-content h2 {
+  margin: 0;
+  color: #fff;
+  font-family: 'Arial Black', sans-serif;
+  line-height: 1;
+  text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 8px #22e1ff, 0 0 16px #22e1ff;
+}
+
+.glow-content h1 { 
+  font-size: 8rem; 
+  text-align: left; /* Changed from center for side-by-side look */
+}
+
+.glow-content h2 { 
+  font-size: 6rem; 
+  text-align: left; 
+}
+
+.glow-content p {
+  color: #fff;
+  letter-spacing: 20px;
+  margin-top: 20px;
+  font-family: sans-serif;
+  opacity: 0.8;
+}
+
+/* TRANSPARENT GLASS NAVBAR */
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  z-index: 3;
+  transform: translateX(-50%);
+  letter-spacing: 3px;
+  opacity: 0.7;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+
+.primary-btn {
+  background: #00e5ff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 40px;
+  margin-right: 20px;
+  font-size: 18px;
+  color: #000;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  box-shadow: 0 0 25px #00e5ff;
+  
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #00e5ff;
+  color: #00e5ff;
+  font-size: 18px;
+  padding: 14px 30px;
+  border-radius: 40px;
+}
+
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.nav-center {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    gap: 30px;
+}
+
+.nav-center li a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.nav-center li a:hover { opacity: 1; }
+
+.nav-right a {
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.signup {
+    padding: 8px 18px;
+    border: 1px solid white;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.signup:hover {
+    background: white;
+    color: black;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 992px) {
+    .intro {
+        flex-direction: column; /* Stacks image on top of text for smaller screens */
+        text-align: center;
+    }
+    .glow-content h1 { font-size: 5rem; text-align: center; }
+    .glow-content h2 { font-size: 3rem; text-align: center; }
+    .astronut { max-width: 300px; }
+}
+
+@media (max-width: 768px) {
+    .nav-center { display: none; }
+}
+
+/* second page
+/* --- PAGE 2 SPECIFIC STYLING --- */
+
+.solar-system-content {
+  text-align: center;
+  z-index: 5;
+}
+
+.solar-system-content h2 {
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 5px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  line-height: 1.8;
+}
+
+.glass-card p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+/* Enhancing the pg-2 background for better readability */
+
+
+
+/* --- PAGE 3: PLANET SCROLLER --- */
+
+.planets-section {
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.planets-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.planets-header h1 {
+  font-size: 5rem;
+  letter-spacing: 10px;
+  margin-bottom: 10px;
+}
+
+/* The Scroll Container */
+.planets-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 40px;
+  width: 90%;
+  padding: 40px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #00e5ff rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+.planets-slider::-webkit-scrollbar {
+  height: 8px;
+}
+.planets-slider::-webkit-scrollbar-thumb {
+  background: #00e5ff;
+  border-radius: 10px;
+}
+
+/* Planet Cards */
+.planet-card {
+  min-width: 300px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.4s ease, border 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.planet-card:hover {
+  transform: translateY(-15px);
+  border: 1px solid #00e5ff;
+}
+
+.planet-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
+}
+
+.planet-card h3 {
+  font-family: 'Arial Black', sans-serif;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.card-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* --- PAGE 3 HEADING GLOW --- */
+
+.planets-header .glow-text {
+  font-family: 'Arial Black', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  /* Matching the Page 2 Solar System glow */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 
+               0 0 30px rgba(34, 225, 255, 0.3); 
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.planets-header p {
+  text-align: center;
+  opacity: 0.8;
+  letter-spacing: 2px;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+
+/* --- PAGE 4: CELESTIAL BODIES STYLING --- */
+
+.celestial-container {
+  text-align: center;
+  width: 90%;
+  max-width: 1300px;
+}
+
+.celestial-title {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 4px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+
+.celestial-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.celestial-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.celestial-item:hover {
+  transform: scale(1.05);
+}
+
+.circle-wrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin-bottom: 20px;
+}
+
+.circle-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 160, 122, 0.5); /* Soft copper border */
+}
+
+/* The decorative rotating ring */
+.orbit-ring {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffa07a;
+  border-left: 2px solid #ffa07a;
+  border-radius: 50%;
+  animation: rotateOrbit 10s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes rotateOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.celestial-item h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.celestial-item h3 span {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  margin-left: 5px;
+}
+
+.explore-btn {
+  background: transparent;
+  border: 2px solid #ffa07a;
+  color: #fff;
+  padding: 12px 40px;
+  border-radius: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 160, 122, 0.2);
+}
+
+.explore-btn:hover {
+  background: #ffa07a;
+  color: #000;
+  box-shadow: 0 0 30px rgba(255, 160, 122, 0.5);
+}
+
+/* Responsive fix for circles */
+@media (max-width: 768px) {
+  .circle-wrapper {
+    width: 180px;
+    height: 180px;
+  }
+}
+/* Update this section in your style.css */
+.pg-4 { 
+  /* This creates a 60% dark tint over your background image */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('fourth.jpg'); 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #000; /* Fallback color */
+}
+
+/* --- PAGE 5: HALF-PAGE FOOTER --- */
+
+.pg-5-half {
+  min-height: 50vh; /* Half the screen height */
+  background: #050505; /* Solid dark background to distinguish from parallax */
+  color: white;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  width: 85%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr; /* Uneven columns for layout */
+  gap: 50px;
+}
+
+.footer-left h2 {
+  font-family: 'Arial Black', sans-serif;
+  color: #00e5ff;
+  margin-bottom: 20px;
+}
+
+.footer-left p {
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+.footer-center h3, .footer-right h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.footer-center ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-center ul li {
+  margin-bottom: 10px;
+}
+
+.footer-center ul li a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-center ul li a:hover {
+  color: #00e5ff;
+}
+
+.creator-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.app-link {
+  background: #00e5ff;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.app-link:hover {
+  box-shadow: 0 0 15px #00e5ff;
+}
+
+.social-icon {
+  color: #fff;
+  opacity: 0.6;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.social-icon:hover {
+  opacity: 1;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .social-links {
+    align-items: center;
+  }
+}
+
+.celestial-title.glow-text {
+  font-family: 'Arial Black', sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 5rem; /* Matches the Page 3 planet heading size */
+  letter-spacing: 5px; /* Matches Page 3 */
+  text-align: center;
+  margin-bottom: 60px;
+  
+  /* The exact glow effect from Page 3 */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 
+               0 0 30px rgba(34, 225, 255, 0.3); 
+}
